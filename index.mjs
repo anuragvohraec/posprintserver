@@ -83,7 +83,7 @@ app.post('/print', async(req, res) => {
                         printer.newLine(cmd.data);
                     }break;
                     case "barcode":{
-                        printer.barcode(cmd.data,"EAN13",{ width: 200, height: 100 ,position:"BTH"});
+                        printer.barcode(cmd.data,"CODE39",{ width: 200, height: 100 ,position:"OFF"});
                     }break;
                     case "qrcode":{
                         printer.qrcode(cmd.data);
