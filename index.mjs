@@ -88,6 +88,9 @@ app.post('/print', async(req, res) => {
                     case "qrcode":{
                         printer.qrcode(cmd.data);
                     }break;
+                    case "drawline":{
+                        printer.drawLine(cmd.data);
+                    }break;
                     case "table":{
                         /**
                          * @type {PrintTableData}
@@ -137,7 +140,7 @@ app.listen(port, () => {
 
 /**
  * @typedef PrintCommand
- * @property {"style"|"align"|"text"|"table"|"barcode"|"newLine"|"qrcode"} command
+ * @property {"style"|"align"|"text"|"table"|"barcode"|"newLine"|"qrcode"|"drawline"} command
  * @property {any} data
  */
 
