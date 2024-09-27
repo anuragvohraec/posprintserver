@@ -91,6 +91,10 @@ app.post('/print', async(req, res) => {
                     case "drawline":{
                         printer.drawLine(cmd.data);
                     }break;
+                    case "image":{
+                        const image = await Image.load(cmd.data);
+                        await printer.image(image);
+                    };break;
                     case "table":{
                         /**
                          * @type {PrintTableData}
@@ -140,7 +144,7 @@ app.listen(port, () => {
 
 /**
  * @typedef PrintCommand
- * @property {"style"|"align"|"text"|"table"|"barcode"|"newLine"|"qrcode"|"drawline"} command
+ * @property {"style"|"align"|"text"|"table"|"barcode"|"newLine"|"qrcode"|"drawline"|"image"} command
  * @property {any} data
  */
 
